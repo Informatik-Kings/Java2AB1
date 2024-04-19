@@ -44,8 +44,9 @@ public class HelloWorldFX extends Application
       {
          if(primaryStage == null) 
          {
-            throw new InvalidSourceException("HelloWorldFX.start: Ungültige Null-Referenz übergeben!");
+            throw new NullPointerException("HelloWorldFX.start(Stage PrimaryStage): Ungültige Null-Referenz zu PrimaryStage!");
          }
+
          Label label = new Label("Hello World!");      
          Scene scene = new Scene(label);      
          primaryStage.setTitle("Hello World!");
@@ -54,12 +55,6 @@ public class HelloWorldFX extends Application
          primaryStage.setMaximized(true); //In maximierten Zustand starten
          label.setAlignment(Pos.CENTER); //Label zentrieren
          primaryStage.show();
-      }
-      catch (InvalidSourceException e)
-      {
-         Alert alert = new Alert(AlertType.ERROR, e.getMessage(), ButtonType.OK);
-         alert.setResizable(true);
-         alert.showAndWait();
       }
       catch (Exception e)
       {
